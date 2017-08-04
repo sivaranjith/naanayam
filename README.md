@@ -1,2 +1,2 @@
-# sillarai
-A coin created using block chain
+# நாணயம்
+தொகுதி சங்கிலியைப் பயன்படுத்தி உருவாக்கப்பட்ட நாணயம்
