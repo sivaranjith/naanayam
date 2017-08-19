@@ -1,15 +1,11 @@
 package core.accounts;
 
 import java.math.BigInteger;
-import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyFactory;
 import java.security.KeyPair;
-import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.interfaces.ECPublicKey;
-import java.security.spec.ECGenParameterSpec;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPrivateKeySpec;
@@ -17,10 +13,10 @@ import java.security.spec.ECPublicKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 
+import core.utils.HashingUtils;
+
 final class AccountsInitializer
 {
-	private static final ECGenParameterSpec EC_SPEC = new ECGenParameterSpec("secp256k1");
-	private static KeyPairGenerator keyGen;
 	private static KeyFactory keyFactory;
 	private static ECParameterSpec ecParamSpec;
 	
@@ -29,14 +25,9 @@ final class AccountsInitializer
 		try
 		{
 			keyFactory = KeyFactory.getInstance("EC");
-			keyGen = KeyPairGenerator.getInstance("EC");
-			keyGen.initialize(EC_SPEC);
-			
-			KeyPair apair = keyGen.generateKeyPair(); 
-		    ECPublicKey apub  = (ECPublicKey)apair.getPublic();
-		    ecParamSpec = apub.getParams();
+			ecParamSpec = HashingUtils.getECParamSpec();
 		}
-		catch( NoSuchAlgorithmException | InvalidAlgorithmParameterException e )
+		catch(NoSuchAlgorithmException e)
 		{
 			e.printStackTrace();
 		}
