@@ -13,6 +13,11 @@ import core.exceptions.BlockCreationException;
 import core.transaction.Transaction;
 import core.utils.HashingUtils;
 
+/*
+ * remember that coinbase transaction also should be send along the transaction list
+ * also the all the transaction should have been validated before
+ *
+ */
 public final class Block
 {
 	private int version, transactionCount;
