@@ -1,5 +1,5 @@
 only core has be completed and the remaning:
       make n-bits dynamic
-      add block after any node as per user request
+      add block after any node as per user request(and then how to point to the longest chain)
 
 application which use core is yet to start
