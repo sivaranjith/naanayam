@@ -3,3 +3,33 @@ only core has be completed and the remaning:
       add block after any node as per user request(and then how to point to the longest chain)
 
 application which use core is yet to start
+
+
+
+accounts:
+	creating a new account
+		create a new private key and get the corresponding public key
+
+
+transaction:
+	creating a transaction
+		verify a transaction
+			check if the previous transaction is in utxo for the respective index
+			executing the script sig
+
+	getting the transaction as a writable format
+	creating a transaction id
+
+
+block:
+	proof of work
+		collecting transaction list and the forming coinbase transaction
+		form the merkle tree
+		find a hash that satisfies the n-bits
+
+		transaction list should be list of transactions not list of string
+
+make n-bits dynamic
+
+blockchain:
+	add the block to the chain and point to the longest chain
